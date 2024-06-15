@@ -1,0 +1,196 @@
+{
+	"banks":[
+		{
+		  "bic": "PARIATURDEU0XXX",
+		  "name": "Banco de espiritu santo",
+		  "countryCode": "GB",
+		  "auth": "oauth",
+		  "products": [
+			"accounts",
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "CUPIDATATSP1XXX",
+		  "name": "Credit Sweets",
+		  "countryCode": "CH",
+		  "auth": "open-id",
+		  "products": [
+			"accounts",
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "DOLORENOR2XXX",
+		  "name": "Royal Bank Of Fun",
+		  "countryCode": "GB",
+		  "auth": "oauth",
+		  "products": [
+			"accounts"
+		  ]
+		},
+		{
+		  "bic": "DESERUNTSP3XXX",
+		  "name": "Banco Con Desserts",
+		  "countryCode": "SP",
+		  "auth": "oauth",
+		  "products": [
+			"accounts",
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "MOLLITNOR4XXX",
+		  "name": "Mbanken",
+		  "countryCode": "NO",
+		  "auth": "open-id",
+		  "products": [
+			"accounts"
+		  ]
+		},
+		{
+		  "bic": "MOLLITSWE5XXX",
+		  "name": "Mbanken",
+		  "countryCode": "SE",
+		  "auth": "oauth",
+		  "products": [
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "REPSP6XXX",
+		  "name": "Banco Republico",
+		  "countryCode": "SP",
+		  "auth": "oauth",
+		  "products": [
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "ANIMDEU7XXX",
+		  "name": "Animat",
+		  "countryCode": "DE",
+		  "auth": "oauth",
+		  "products": [
+			"accounts",
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "DODEU8XXX",
+		  "name": "Bank Dariatur",
+		  "countryCode": "CH",
+		  "auth": "open-id",
+		  "products": [
+			"accounts",
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "DOLORENOR9XXX",
+		  "name": "Bank Dolores",
+		  "countryCode": "NO",
+		  "auth": "ssl-certificate",
+		  "products": [
+			"accounts",
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "CONSSWE10XXX",
+		  "name": "Constantie Bank",
+		  "countryCode": "SE",
+		  "auth": "oauth",
+		  "products": [
+			"accounts",
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "NONNOR11XXX",
+		  "name": "Norway National Bank",
+		  "countryCode": "NO",
+		  "auth": "ssl-certificate",
+		  "products": [
+			"accounts"
+		  ]
+		},
+		{
+		  "bic": "NSAVNOR12XXX",
+		  "name": "National Savings Bank",
+		  "countryCode": "NO",
+		  "auth": "oauth",
+		  "products": [
+			"accounts",
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "MOLLITSP13XXX",
+		  "name": "Bank Nulla",
+		  "countryCode": "PT",
+		  "auth": "oauth",
+		  "products": [
+			"accounts",
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "VELITDEU14XXX",
+		  "name": "One Nations Bank",
+		  "countryCode": "DE",
+		  "auth": "oauth",
+		  "products": [
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "FIRSTSP15XXX",
+		  "name": "First Guarantee Group",
+		  "countryCode": "PT",
+		  "auth": "ssl-certificate",
+		  "products": [
+			"accounts",
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "ULLAMCOSP16XXX",
+		  "name": "Bank Ullamco",
+		  "countryCode": "SP",
+		  "auth": "ssl-certificate",
+		  "products": [
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "LNBSP17XXX",
+		  "name": "Last National Bank",
+		  "countryCode": "NO",
+		  "auth": "ssl-certificate",
+		  "products": [
+			"accounts",
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "SOARCDEU18XXX",
+		  "name": "Soar Credit Union",
+		  "countryCode": "DE",
+		  "auth": "oauth",
+		  "products": [
+			"accounts",
+			"payments"
+		  ]
+		},
+		{
+		  "bic": "ETSWE19XXX",
+		  "name": "Cash Financial",
+		  "countryCode": "SE",
+		  "auth": "oauth",
+		  "products": [
+			"accounts"
+		  ]
+		}
+	  ]
+}
