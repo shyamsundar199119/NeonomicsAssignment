@@ -89,6 +89,7 @@ public class BanksRemoteCalls {
         int fromIndex = (page - 1) * pageSize;
         int toIndex = page * pageSize;
         for (Entry<String, String> entry : config.entrySet()) {
+            // TODO Improve the logic to have a retry attempt on failures
             try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
                 HttpGet httpget = new HttpGet(entry.getValue());
                 try (CloseableHttpResponse response = httpclient.execute(httpget)) {
@@ -147,6 +148,7 @@ public class BanksRemoteCalls {
      */
     private static List<BankModel> paginate(List<BankModel> bankModels, int fromIndex, int toIndex) {
         int total = bankModels.size();
+        // TODO Improve the logic to be more readable, clear and align with logic of pagination across application
         if (fromIndex >= 0) {
             toIndex = Math.min(toIndex, total);
             return fromIndex < total ? bankModels.subList(fromIndex, toIndex) : new ArrayList<BankModel>();
