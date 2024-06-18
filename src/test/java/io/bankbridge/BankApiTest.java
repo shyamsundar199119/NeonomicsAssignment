@@ -63,6 +63,32 @@ public class BankApiTest {
 		assertEquals(expectedBanks.size(), returnBanks.size());
 		AssertBanksAreEqual(expectedBanks, returnBanks);
 	}
+
+	@Test
+	public void testV1BanksWithBicFilterSuccess() throws Exception {
+		List<BankModel> expectedBanks = expectedV1BanksForBIC();
+		TestResponse response = request(Constants.GET, v1BanksUrl + "?bic=DODEU8XXX");
+		assertEquals(200, response.status);
+		assertNotNull(response.body);
+		List<BankModel> returnBanks = new ObjectMapper().readValue(response.body,
+				new TypeReference<List<BankModel>>() {
+				});
+		assertEquals(expectedBanks.size(), returnBanks.size());
+		AssertBanksAreEqual(expectedBanks, returnBanks);
+	}
+
+	@Test
+	public void testV1BanksWithNameFilterSuccess() throws Exception {
+		List<BankModel> expectedBanks = expectedV1BanksForNameParam();
+		TestResponse response = request(Constants.GET, v1BanksUrl + "?name=Credit");
+		assertEquals(200, response.status);
+		assertNotNull(response.body);
+		List<BankModel> returnBanks = new ObjectMapper().readValue(response.body,
+				new TypeReference<List<BankModel>>() {
+				});
+		assertEquals(expectedBanks.size(), returnBanks.size());
+		AssertBanksAreEqual(expectedBanks, returnBanks);
+	}
 	
 	@Test
 	public void testV1BanksWithPageSizeFilterSuccess() throws Exception {
@@ -179,6 +205,36 @@ public class BankApiTest {
 		bank.setName("Constantie Bank");
 		bank.setCountryCode("SE");
 		bank.setAuth("oauth");
+		bank.setProducts(new ArrayList<String>( Arrays.asList("accounts", "payments")));
+		mockBanks.add(bank);
+		return mockBanks;
+	}
+
+	private static List<BankModel> expectedV1BanksForBIC() {
+		List<BankModel> mockBanks = new ArrayList<>();
+		BankModel bank = new BankModel();
+		bank.setBic("DODEU8XXX");
+		bank.setName("Bank Dariatur");
+		bank.setCountryCode("CH");
+		bank.setAuth("open-id");
+		bank.setProducts(new ArrayList<String>( Arrays.asList("accounts", "payments")));
+		mockBanks.add(bank);
+		return mockBanks;
+	}
+	private static List<BankModel> expectedV1BanksForNameParam() {
+		List<BankModel> mockBanks = new ArrayList<>();
+		BankModel bank = new BankModel();
+		bank.setBic("SOARCDEU18XXX");
+		bank.setName("Soar Credit Union");
+		bank.setCountryCode("DE");
+		bank.setAuth("oauth");
+		bank.setProducts(new ArrayList<String>( Arrays.asList("accounts", "payments")));
+		mockBanks.add(bank);
+		bank = new BankModel();
+		bank.setBic("CUPIDATATSP1XXX");
+		bank.setName("Credit Sweets");
+		bank.setCountryCode("CH");
+		bank.setAuth("open-id");
 		bank.setProducts(new ArrayList<String>( Arrays.asList("accounts", "payments")));
 		mockBanks.add(bank);
 		return mockBanks;

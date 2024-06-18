@@ -97,7 +97,7 @@ public class BanksRemoteCalls {
                     if (isSuccessfulResponse(statusCode)) {
                         String responseString = EntityUtils.toString(response.getEntity());
                         BankModel bankModel = objectMapper.readValue(responseString, BankModel.class);
-                        if (isValidBankModel(bankModel, countryCode, nameParam, bicParam, authParam)) {
+                        if (matchesFilter(bankModel, countryCode, nameParam, bicParam, authParam)) {
                             bankModels.add(bankModel);
                         }
                     }
@@ -121,7 +121,7 @@ public class BanksRemoteCalls {
      * @param authParam   the authorization parameter to filter by, can be blank
      * @return true if the bank model matches all non-blank filter parameters, false otherwise
      */
-    private static boolean isValidBankModel(BankModel bankModel, String countryCode, String nameParam, String bicParam, String authParam) {
+    private static boolean matchesFilter(BankModel bankModel, String countryCode, String nameParam, String bicParam, String authParam) {
         return (StringUtils.isBlank(countryCode) || countryCode.equals(bankModel.getCountryCode())) &&
                 (StringUtils.isBlank(bicParam) || bicParam.equals(bankModel.getBic())) &&
                 (StringUtils.isBlank(authParam) || authParam.equals(bankModel.getAuth())) &&
