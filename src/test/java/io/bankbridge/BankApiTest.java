@@ -183,6 +183,25 @@ public class BankApiTest {
 		assertEquals(2, returnBanks.size());
 		AssertBanksAreEqualForV2(expectedV2BanksForAuthAndCountryCodeFilter(), returnBanks);
 	}
+
+	@Test
+	public void testV2BanksWithAuthAndPageFilterSuccess() throws Exception {
+		TestResponse response = request(Constants.GET, v2BanksUrl + "?auth=open-id&page=2&size=2");
+		assertEquals(200, response.status);
+		assertNotNull(response.body);
+		List<BankModel> returnBanks = new ObjectMapper().readValue(response.body,
+				new TypeReference<List<BankModel>>() {
+				});
+		assertEquals(1, returnBanks.size());
+		AssertBanksAreEqualForV2(expectedV2BanksForAuthAndPageFilter(), returnBanks);
+	}
+
+	@Test
+	public void testV2BanksWithCountryCodeNoContent() throws Exception {
+		TestResponse response = request(Constants.GET, v2BanksUrl + "?countryCode=IN");
+		assertEquals(204, response.status);
+		assertNotNull(response.body);
+	}
 	
 	@Test
 	public void testV2BanksNoContent() throws Exception {
@@ -391,6 +410,19 @@ public class BankApiTest {
 		bank.setAuth("open-id");
 		mockBanks.add(bank);
 		bank = new BankModel();
+		bank.setBic("DODEU8XXX");
+		bank.setName("Bank Dariatur");
+		bank.setCountryCode("CH");
+		bank.setAuth("open-id");
+		mockBanks.add(bank);
+
+		return mockBanks;
+	}
+
+	private static List<BankModel> expectedV2BanksForAuthAndPageFilter() {
+		List<BankModel> mockBanks = new ArrayList<>();
+
+		BankModel bank = new BankModel();
 		bank.setBic("DODEU8XXX");
 		bank.setName("Bank Dariatur");
 		bank.setCountryCode("CH");

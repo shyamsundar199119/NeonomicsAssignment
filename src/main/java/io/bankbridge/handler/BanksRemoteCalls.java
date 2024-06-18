@@ -90,16 +90,15 @@ public class BanksRemoteCalls {
         int toIndex = page * pageSize;
         for (Entry<String, String> entry : config.entrySet()) {
             // TODO Improve the logic to have a retry attempt on failures
-            try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
-                HttpGet httpget = new HttpGet(entry.getValue());
-                try (CloseableHttpResponse response = httpclient.execute(httpget)) {
-                    int statusCode = response.getStatusLine().getStatusCode();
-                    if (isSuccessfulResponse(statusCode)) {
-                        String responseString = EntityUtils.toString(response.getEntity());
-                        BankModel bankModel = objectMapper.readValue(responseString, BankModel.class);
-                        if (matchesFilter(bankModel, countryCode, nameParam, bicParam, authParam)) {
-                            bankModels.add(bankModel);
-                        }
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            HttpGet httpget = new HttpGet(entry.getValue());
+            try (CloseableHttpResponse response = httpclient.execute(httpget)) {
+                int statusCode = response.getStatusLine().getStatusCode();
+                if (isSuccessfulResponse(statusCode)) {
+                    String responseString = EntityUtils.toString(response.getEntity());
+                    BankModel bankModel = objectMapper.readValue(responseString, BankModel.class);
+                    if (matchesFilter(bankModel, countryCode, nameParam, bicParam, authParam)) {
+                        bankModels.add(bankModel);
                     }
                 }
             } catch (Exception e) {
